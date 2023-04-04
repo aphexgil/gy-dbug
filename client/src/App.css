@@ -1,0 +1,277 @@
+.sidebar{
+    position: fixed;
+    height: 100vh;
+    background-color: #777;
+    width: 16vw;
+    z-index: 1;
+    font-size: 20px;
+}
+
+.dashboard-container{
+    padding: 0px;
+    margin: 0px;
+}
+
+body{
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+}
+
+.login-btn-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.login-btn{
+    display: inline-block;
+}
+
+.sidebar-list>a{
+    float: left;
+    padding-left: 0px;
+}
+
+.toggle-button{
+    position: absolute;
+    top: 15px;
+    right: 40px;
+    z-index: 2;
+}
+
+.welcome-card{
+    margin-top: 50px;
+    margin-bottom: 12px;
+    color: black !important;
+}
+
+.nav-dropdown > a:not(:hover){
+    color: #bbb !important;
+}
+
+.nav-box{
+    width: max-content;
+    margin: 10px 15px;
+    -webkit-box-shadow: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+}
+
+.body-container{
+    /* margin: 0px !important; */
+     padding: 0px !important; 
+}
+
+.ticket-detail-card {
+    width: 90%;
+    margin: 50px auto;
+}
+
+.project-detail-card{
+    margin: 50px auto;
+}
+
+
+
+.ticket-detail-header, .project-detail-header{
+    display: flex;
+    justify-content: space-between;
+    color: black !important;
+}
+
+.ticket-detail-header-left{
+    text-align: left;
+    line-height: 7px;
+}
+
+.ticket-detail-description, .project-detail-description{
+    text-align: left;
+    width: 100%;
+    border: #333;
+}
+
+.ticket-detail-flair, .project-detail-flair{
+    display: flex;
+    justify-content: flex-start;
+    
+}
+
+.ticket-detail-status, .ticket-detail-priority, .project-detail-status{
+    margin: 5px;
+    padding: 5px;
+    width: max(max-content, 200px);
+    height: 30px;
+    border-radius: 4px;
+    background-color: #eee;
+}
+
+.ticket-detail-footer{
+    text-align: left;
+    font-size: 13px;
+    color: black !important;
+}
+
+.ticket-detail-type{
+    font-weight: lighter;
+}
+
+.login-card, .home-card{
+    width: 700px;
+    margin: 100px auto;
+}
+
+.login-signup-btn{
+    background-color: #777 !important;
+}
+
+.navbar-toggler{
+    float: left;
+}
+
+.dashboard-table-links{
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+}
+
+.dashboard-table-links>a{
+    padding: 17px;
+}
+
+.buggin-logo{
+    width: 12vw;
+    height: auto;
+    margin-bottom: 70px;
+    margin-left: -8px;
+}
+
+.buggin-title{
+    display: none;
+}
+
+
+/* ==== Comment.js ==== */
+
+.comment-detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 15px !important;
+}
+
+.comment-detail-author {
+    font-weight: bolder;
+}
+
+/* .edit-icon {
+    margin: 5px;
+    padding: 5px;
+} */
+
+.delete-icon {
+    margin: 5px;
+    padding: 5px;
+}
+
+.comment-card {
+    width: 90%;
+    margin: 0px auto;
+    padding: 0px;
+}
+
+.comment-list {
+    color: black !important;
+    margin: 10px auto;
+    padding: 0px;
+    width: 90%;
+}
+
+.icon-hover{
+    transition: .1s ease;
+}
+
+.icon-hover:hover{
+    transform: scale(1.3);
+}
+
+.disabled-link{
+    cursor: default !important;
+    opacity: 50% !important;
+}
+
+/* ==== CommentForm.js ==== */
+
+.comment-input {
+    padding: 10px;
+    height: 300px;
+}
+
+/* ==== ProjectTickets.js ==== */
+
+.project-ticket-table {
+    margin-top: 25px;
+}
+
+.project-ticket-header {
+    color: black !important;
+    text-align: center;
+}
+
+/* === MODALS === */
+
+.black-text {
+    color: black !important
+}
+
+/* ==== DARK MODE ==== */
+
+.dark {
+    background-color: #333;
+    color: #fff;
+  }
+  .light {
+    background-color: #fff;
+    color: #333;
+  }
+
+  /* ==== HOME PAGE ==== */
+  .home-card {
+    display: flex;
+    justify-content: center;
+  }
+
+  /* ==== MEDIA QUERIES ==== */
+
+
+@media only screen and (max-width: 991px) {
+    .sidebar {
+        height: auto;
+        width: auto;
+        position: relative;
+    }
+    .nav-box{
+        margin-top: 0px;
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: flex-start !important;
+        margin: 0 0;
+    }
+    .buggin-logo{
+        display: none;
+    }
+    .buggin-title{
+        display: inline-block;
+    }
+    .dashboard-table-links>a{
+        padding: 3px;
+    }
+    .welcome-card{
+        margin-top: 20px;
+    }
+    .login-card{
+        width: auto;
+    }
+    
+  }
