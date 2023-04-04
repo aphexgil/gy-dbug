@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import MyTicketTable from "../components/MyTicketTable";
 import { useQuery } from "@apollo/client";
-import { QUERY_TICKETS, QUERY_PROJECTS, QUERY_USERS } from "../utils/queries";
-import TicketModal from "../components/TicketModal";
+import { QUERY_TICKETS, QUERY_USERS } from "../utils/queries";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Spinner from "../components/Spinner";
@@ -14,6 +12,8 @@ import Col from "react-bootstrap/Col";
 import "bootstrap/dist/css/bootstrap.min.css";
 import AuthService from "../utils/auth";
 import ProjectModal from "../components/ProjectModal";
+import TicketModal from "../components/TicketModal";
+import MyTicketTable from "../components/MyTicketTable";
 
 const auth = AuthService;
 
@@ -47,6 +47,7 @@ function MyTickets({
       setUserList(usersQuery.data.users);
     },
   });
+
   const [dashData, setDashData] = useState([]);
   const [projectData, setProjectData] = useState([]);
   const [userList, setUserList] = useState([]);
@@ -73,7 +74,9 @@ function MyTickets({
             </Col>
             <Col xs={10} lg={9}>
               <Card body className="welcome-card">
-              <div style={styles.header}>{currentUser.username}'s Tickets</div>
+                <div style={styles.header}>
+                  {currentUser.username}'s Tickets
+                </div>
               </Card>
 
               <TicketModal
@@ -97,7 +100,11 @@ function MyTickets({
                     Create a Ticket
                   </Button>
   
-                  <MyTicketTable tickets={dashData} setDashData={setDashData} currentUser={currentUser}/>
+                  <MyTicketTable
+                    tickets={dashData}
+                    setDashData={setDashData}
+                    currentUser={currentUser}
+                  />
                 </div>
               )}
             </Col>

@@ -9,6 +9,9 @@ function MyProjectTable({ projects, setProjectData, currentUser }) {
     return <h3>No Projects Yet</h3>;
   }
 
+  console.log(currentUser);
+  // console.log(projects);
+
   return (
     <Table striped bordered hover variant="light">
       <thead>
@@ -24,7 +27,7 @@ function MyProjectTable({ projects, setProjectData, currentUser }) {
         {projects &&
           projects.map((project, i) => (
             <tr key={i}>
-              {currentUser.username === project.projectManager ? (
+              {currentUser.username == project.projectManager ? (
                 <>
                   <td>{project.projectTitle}</td>
                   <td>{project.projectManager}</td>

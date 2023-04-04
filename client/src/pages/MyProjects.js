@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useQuery } from "@apollo/client";
-import { QUERY_TICKETS, QUERY_PROJECTS, QUERY_USERS } from "../utils/queries";
+import { QUERY_PROJECTS, QUERY_USERS } from "../utils/queries";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Spinner from "../components/Spinner";
@@ -13,7 +13,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import AuthService from "../utils/auth";
 import ProjectModal from "../components/ProjectModal";
 import TicketModal from "../components/TicketModal";
-import MyProjectTable from "../components/ProjectTable";
+import MyProjectTable from "../components/MyProjectTable";
 
 const auth = AuthService;
 
@@ -35,9 +35,10 @@ function MyProjects({
   show,
   showProject,
 }) {
-  const { loading, projectQuery } = useQuery(QUERY_PROJECTS, {
+  const { loading, data } = useQuery(QUERY_PROJECTS, {
     onCompleted: () => {
-      setProjectData(projectQuery.data.projects);
+      setProjectData(data.projects);
+      console.log(data.projects);
     },
   });
 
@@ -50,12 +51,13 @@ function MyProjects({
   const [dashData, setDashData] = useState([]);
   const [projectData, setProjectData] = useState([]);
   const [userList, setUserList] = useState([]);
+  // Project Manager from getProfile (current user)
 
   let currentUser;
 
-  // TicketAuthor from getProfile (current user)
   if (auth.loggedIn()) {
     currentUser = auth.getProfile().data;
+    //console.log(currentUser);
   }
 
   return (
@@ -107,12 +109,12 @@ function MyProjects({
             </Col>
           </Row>
           <TicketModal
-              dashData={dashData}
-              setDashData={setDashData}
-              currentUser={currentUser}
-              handleClose={handleClose}
-              show={show}
-              userList={userList}
+            dashData={dashData}
+            setDashData={setDashData}
+            currentUser={currentUser}
+            handleClose={handleClose}
+            show={show}
+            userList={userList}
           />
         </Container>
       ) : (
