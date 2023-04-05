@@ -24,6 +24,7 @@ const styles = {
   },
   button: {
     fontFamily: "Rubik Mono One, sans-serif",
+    marginBottom: "17px"
   },
 };
 

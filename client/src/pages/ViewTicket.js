@@ -145,7 +145,7 @@ const ViewTicket = ({
                     {ticketCreatedAt.split(", ")[1].slice(8)}]<br></br>
                     {updatedAt === ticketCreatedAt
                       ? ""
-                      : `  (Updated ${updatedAt.split(", ")[0]} [${updatedAt
+                      : `(Updated ${updatedAt.split(", ")[0]} [${updatedAt
                           .split(", ")[1]
                           .slice(0, 5)}${updatedAt.split(", ")[1].slice(8)}])`}
                   </Card.Footer>

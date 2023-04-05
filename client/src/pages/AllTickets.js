@@ -20,10 +20,11 @@ const auth = AuthService;
 const styles = {
   header: {
     fontFamily: "Rubik Mono One, sans-serif",
-    fontSize: "30px",
+    fontSize: "30px"
   },
   button: {
     fontFamily: "Rubik Mono One, sans-serif",
+    marginBottom: "17px"
   },
 };
 
@@ -102,7 +103,11 @@ function AllTickets({
                     Create a Ticket
                   </Button>
   
-                  <TicketTable tickets={dashData} setDashData={setDashData} currentUser={currentUser}/>
+                  <TicketTable 
+                    tickets={dashData}
+                    setDashData={setDashData}
+                    currentUser={currentUser}
+                  />
                 </div>
               )}
             </Col>

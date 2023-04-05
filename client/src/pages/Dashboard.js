@@ -125,7 +125,11 @@ function Dashboard({
                     Create a Ticket
                   </Button>
                   <div style={styles.header}>Current Tickets</div>
-                  <TicketTable tickets={dashData} setDashData={setDashData} currentUser={currentUser}/>
+                  <TicketTable
+                    tickets={dashData}
+                    setDashData={setDashData}
+                    currentUser={currentUser}
+                  />
                 </div>
               )}
             </Col>
