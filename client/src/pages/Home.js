@@ -1,5 +1,8 @@
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import { LOGIN_USER } from "../utils/mutations";
+import { useMutation } from "@apollo/client";
+import Auth from "../utils/auth";
 import '../App.css';
 
 const styles = {
@@ -14,6 +17,21 @@ const styles = {
 };
 
 function Home() {
+
+  const [login, { error, data }] = useMutation(LOGIN_USER);
+
+  const handleGuestLogin = async (event) => {
+    event.preventDefault();
+    try {
+      const { data } = await login({
+        variables: { email: "guest@dbug.com", password: "dbugguest" }
+      });
+      Auth.login(data.login.token);
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
   return (
     <>
       <Card body className="home-card black-text">
@@ -27,6 +45,9 @@ function Home() {
         <div className="login-btn-wrapper">
         <Button href="/login" variant="dark" className="login-btn">
           Log In
+        </Button>
+        <Button variant="light" onClick={handleGuestLogin}>
+          Guest Log In
         </Button>
         </div>
       </Card>
